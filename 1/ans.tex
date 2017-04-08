@@ -1,0 +1,21 @@
+\paragraph{A.} 
+Now consider a circumstance where you need to enter a legal E-Mail. Note that the correct form of an E-Mail:  $$/\^[a-zA-Z0-9\_-]+@[a-zA-Z0-9\_-]+(.[a-zA-Z0-9\_-]+)+\$/$$
+So, here is the test ideas list:
+\begin{table}[H]
+	\caption{Test ideas list}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Test & Why it's interesting & Expected result \\\hline
+		<Blank> & Empty field, what's it do? &  Reject? Ignore? \\\hline
+		abc@abc.com.cn & Valid value & Accepts it \\\hline
+		abc & Without '@' and domain name & Reject, error message \\\hline
+		abc@ & Without domain name & Reject, error message \\\hline
+		abc@abc & Without suffix & Reject, error message \\\hline
+		abc@.com & Without host name & Reject, error message \\\hline
+		@abc.com & Without user name & Reject, error message \\\hline
+		@ & Without user name and domain name & Reject, error message \\\hline
+		abcabc.cn & Without separator '@' & Reject, error message \\\hline
+		***@abc.com & Invalid user name characters & Reject, error message \\\hline
+		abc@a\%c.c\$m & Invalid domain name characters & Reject, error message \\\hline
+	\end{tabular}
+\end{table}
